@@ -5,18 +5,6 @@ char turn = 'X';
 bool run =1;
 int row=9, col=9, draw = 0;
 
-int main()
-{
-    while(run)
-    {
-        board();
-        pturn();
-        run = game();
-    }
-    ending();
-    return 0;
-}
-
 void board() //Display basic board
 {
     system("cls"); //to clear previous screen
@@ -130,4 +118,16 @@ void ending()
     else if(turn == 'O')
         cout << "Player 1 WINS!!!";
     cout << "\n\t\tGAME OVER TATA";
+}
+
+int main()
+{
+    while(run)
+    {
+        board();
+        pturn();
+        run = game();
+    }
+    ending();
+    return 0;
 }
