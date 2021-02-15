@@ -29,7 +29,7 @@ int pregame(int a)
 {
     int choice;
     
-    //system("cls");
+    system("cls");
     
     cout << "*******************************************************************************\n";
     cout << "\t\t Tic Tac Toe by Sidharth Sethi\n";
@@ -54,7 +54,7 @@ int pregame(int a)
 
 void board(int choice) //Display basic board
 {
-    //system("cls"); //to clear previous screen
+    system("cls"); //to clear previous screen
     cout << "*******************************************************************************\n";
     cout << "\t\t Tic Tac Toe by Sidharth Sethi\n";
     cout << "*******************************************************************************\n";
