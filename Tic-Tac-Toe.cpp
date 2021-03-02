@@ -23,8 +23,10 @@ private:
     char turn = 'X';
     int row = 9, col = 9, draw = 0;
 public:
-    int type;
+    int type; // variable for storing if the player is 'X' or 'O'
     bool run = true;
+
+    // Function for main menu which is displayed in the beginning -
     int Main_menu (int a)
     {
         int choice;
@@ -88,23 +90,24 @@ public:
             cout << "\n\t\t Your Turn : ";
     }
 
+    // Function which implements the actual functioning of the game - 
     int Game_working ()
     {
-        //win
-        //horizontal
+        // winning conditions -
+        // horizontal
         for (int i = 0; i <= 2; i++)
             if (grid[i][0] == grid[i][1] && grid[i][0] == grid[i][2])
                 return 0;
-        //vertical
+        // vertical
         for (int i = 0; i <= 2; i++)
             if (grid[0][i] == grid[1][i] && grid[0][i] == grid[2][i])
                 return 0;
-        //diagonals
+        // diagonals
         if (grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2])
             return 0;
         if (grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0])
             return 0;
-        //Game_working running
+        // Game_working running
         for (int i = 0; i <= 2; i++)
             for (int j = 0; j <= 2; j++)
                 if (grid[i][j] != 'X' && grid[i][j] != 'O')
@@ -113,6 +116,7 @@ public:
         return 0;
     }
 
+    // Function which returns index 
     int getIndex (vector < int >v, int K)
     {
         auto it = find (v.begin (), v.end (), K);
@@ -128,6 +132,8 @@ public:
         }
         return 0;
     }
+
+    // Function which returns if the user wants to continue playing - 
     char Play_again ()
     {
         cout << " \n\t\t Do You want to play again(Y/n) ";
@@ -135,6 +141,8 @@ public:
         cin >> again;
         return again;
     }
+
+
     void User_turn_i_cal (int type)
     {
         if (type == 1)
@@ -156,7 +164,7 @@ public:
         Move_calculator (choice);
         /*
            Turn Switch and Prevention of changing other's marking
-         */
+        */
         if (type == 1)
         {
             if (turn == 'X' && grid[row][col] != 'X' && grid[row][col] != 'O')
@@ -207,7 +215,7 @@ public:
         Move_calculator (choice);
         /*
            Turn Switch and Prevention of changing other's marking
-         */
+        */
 
         grid[row][col] = 'O';
         turn = 'X';
@@ -261,7 +269,7 @@ public:
         }
     }
 
-
+    // Function which displays winner/loser after the game -
     void Game_Over ()
     {
         if (type == 1)
@@ -289,8 +297,7 @@ public:
 
 };
 
-int
-main ()
+int main ()
 {
 
     int choice;
